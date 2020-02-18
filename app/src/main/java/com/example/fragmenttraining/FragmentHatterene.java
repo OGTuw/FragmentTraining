@@ -21,6 +21,7 @@ public class FragmentHatterene extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // R.layout.Fragment(xml)のファイル名
         return inflater.inflate(R.layout.hatterene, null);
     }
 
@@ -31,7 +32,12 @@ public class FragmentHatterene extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        // FragmentにあるImageViewを取得。
+        // FragmentクラスではR.Id.〜は使えないので、view.〜って書く。
         ImageView img = view.findViewById(R.id.imgHatterene);
+        // 画像をいい感じにしてくれるGlide様。
+        // withの引数は確定でgetContext()。
+        // loadの引数は乗っけたい画像をR(res).drawable.画像名
         Glide.with(getContext()).load(R.drawable.img_9080).into(img);
     }
 }

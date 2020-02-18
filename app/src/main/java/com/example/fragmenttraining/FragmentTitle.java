@@ -17,6 +17,7 @@ public class FragmentTitle extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // R.layout.Fragment(xml)のファイル名
         return inflater.inflate(R.layout.title, null);
     }
 
