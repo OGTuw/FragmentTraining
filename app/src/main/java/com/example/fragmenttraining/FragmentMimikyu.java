@@ -39,5 +39,11 @@ public class FragmentMimikyu extends Fragment {
         // withの引数は確定でgetContext()。
         // loadの引数は乗っけたい画像をR(res).drawable.画像名
         Glide.with(getContext()).load(R.drawable.img_9078).into(img);
+
+        // Glide様を使うときは、Gradleスクリプト>build.gradle(モジュール：app) に
+        // implementation 'com.github.bumptech.glide:glide:4.4.0' を貼り付けて、
+        // app > manifests > AndroidManifest.xmlに
+        // <uses-permission android:name="android.permission.INTERNET" /> を
+        // 貼り付けとかなきゃいけない。
     }
 }
