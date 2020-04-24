@@ -28,20 +28,25 @@ class MainActivity : AppCompatActivity() {
     // FragmentButtonクラスから押されたボタンの情報なんかをもらう。
     override fun onActivityReenter(resultCode: Int, data: Intent?) {
         super.onActivityReenter(resultCode, data)
-        val id = data?.getSerializableExtra("buttonId") as? ButtonId
 
-        // Fragmentクラスのインスタンス化。
-        val fragmentMimikyu = FragmentMimikyu()
-        val fragmentDragovish = FragmentDragovish()
-        val fragmentHatterene = FragmentHatterene()
+        // dataのnullチェック
+        if (data == null) return
+        // 以降dataはnonnullであることが保証される
 
-        when(id){
-            // ButtonIdに応じてFragmentの入れ替え
-            ButtonId.Mimikyu -> supportFragmentManager.beginTransaction().replace(R.id.frame_fragment_container,fragmentMimikyu).commit()
-            ButtonId.Dragovish -> supportFragmentManager.beginTransaction().replace(R.id.frame_fragment_container,fragmentDragovish).commit()
-            ButtonId.Hatterene -> supportFragmentManager.beginTransaction().replace(R.id.frame_fragment_container,fragmentHatterene).commit()
-            null -> TODO()
+        // キャストできないなら何もせずにreturn
+        val id = data.getSerializableExtra("buttonId") as? ButtonId ?: return
+
+        // ButtonIdに応じて必要なFragmentクラスのインスタンス化。
+        val fragment = when (id) {
+            ButtonId.Mimikyu -> FragmentMimikyu()
+            ButtonId.Dragovish -> FragmentDragovish()
+            ButtonId.Hatterene -> FragmentHatterene()
         }
 
+        // Fragmentの反映
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.frame_fragment_container, fragment)
+            .commit()
     }
 }
