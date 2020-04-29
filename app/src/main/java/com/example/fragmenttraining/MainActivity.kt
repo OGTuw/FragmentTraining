@@ -1,10 +1,8 @@
 package com.example.fragmenttraining
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.mimikyu.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // 以降dataはnonnullであることが保証される
 
         // キャストできないなら何もせずにreturn
-        val id = data.getSerializableExtra("buttonId") as? ButtonId ?: return
+        val id = data.getSerializableExtra(FragmentButton.PARAM_BUTTON_ID) as? ButtonId ?: return
 
         // ButtonIdに応じて必要なFragmentクラスのインスタンス化。
         val fragment = when (id) {
