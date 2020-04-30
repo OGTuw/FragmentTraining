@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentTitle extends Fragment {
+public class TitleFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +18,7 @@ public class FragmentTitle extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // R.layout.Fragment(xml)のファイル名
-        return inflater.inflate(R.layout.title, null);
+        return inflater.inflate(R.layout.fragment_title, null);
     }
 
     @Override

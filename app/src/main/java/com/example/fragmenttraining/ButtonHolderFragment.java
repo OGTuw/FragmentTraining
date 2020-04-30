@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import org.jetbrains.annotations.NotNull;
 
-public class FragmentButton extends Fragment {
+public class ButtonHolderFragment extends Fragment {
 
     // bundleとかで渡すパラメータ名は定数化しておく
     public static final String PARAM_BUTTON_ID = "buttonId";
@@ -37,7 +37,7 @@ public class FragmentButton extends Fragment {
             Bundle savedInstanceState
     ) {
         // R.layout.Fragment(xml)のファイル名
-        return inflater.inflate(R.layout.button, container, false);
+        return inflater.inflate(R.layout.fragment_button_holder, container, false);
     }
 
     @Override

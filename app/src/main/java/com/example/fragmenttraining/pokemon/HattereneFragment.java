@@ -1,4 +1,4 @@
-package com.example.fragmenttraining;
+package com.example.fragmenttraining.pokemon;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,8 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.fragmenttraining.R;
 
-public class FragmentDragovish extends Fragment {
+public class HattereneFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class FragmentDragovish extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // R.layout.Fragment(xml)のファイル名
-        return inflater.inflate(R.layout.dragovish, null);
+        return inflater.inflate(R.layout.fragment_pokemon_hatterene, null);
     }
 
     @Override
@@ -34,10 +35,10 @@ public class FragmentDragovish extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         // FragmentにあるImageViewを取得。
         // FragmentクラスではR.Id.〜は使えないので、view.〜って書く。
-        ImageView img = view.findViewById(R.id.imgDragovish);
+        ImageView img = view.findViewById(R.id.imgHatterene);
         // 画像をいい感じにしてくれるGlide様。
         // withの引数は確定でgetContext()。
         // loadの引数は乗っけたい画像をR(res).drawable.画像名
-        Glide.with(getContext()).load(R.drawable.img_9081).into(img);
+        Glide.with(getContext()).load(R.drawable.img_9080).into(img);
     }
 }
